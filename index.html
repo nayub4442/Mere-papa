@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mere Papa ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Georgia,serif;
+ background:linear-gradient(135deg,#fff0f5,#ffd6e5,#fff5dc);
+ color:#8b1746;
+ text-align:center;
+}
+header{
+ background:linear-gradient(120deg,#a90049,#ed6597);
+ color:white;padding:30px 12px;
+ border-radius:0 0 35px 35px;
+}
+h1{font-size:38px;margin:10px}
+h2{color:#b51c59}
+p{line-height:1.7}
+section{
+ background:white;
+ margin:22px 14px;
+ padding:23px 16px;
+ border-radius:23px;
+ box-shadow:0 5px 20px #d77b9b38;
+}
+button{
+ border:0;border-radius:25px;
+ background:#d52c70;color:white;
+ padding:12px 20px;
+ margin:7px; font-size:15px;
+ cursor:pointer;
+}
+button:hover{background:#a90049}
+.option{
+ display:block;width:100%;
+ background:#fff0f5;color:#9b174d;
+ border:1px solid #ef9dbb;
+}
+.option:focus,.option:hover{background:#f8c4d8}
+input{
+ padding:12px;border:1px solid #e69ab6;
+ border-radius:12px;width:90%;margin:10px;
+}
+.hidden{display:none}
+.heart{font-size:35px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.3)}}
+#agreement{
+ border:2px dashed #d94b85;
+ background:#fff8fb;padding:20px;
+}
+#gameArea{
+ min-height:130px;background:#fff0f5;
+ border-radius:15px;padding:20px;
+}
+footer{padding:25px;color:#9c2855}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="heart">❤️</div>
+ <h1>MERE PAPA</h1>
+ <h3>My First Hero, My Forever Love</h3>
+ <p>Ek chhoti si duniya sirf mere Papa ke naam ❤️</p>
+ <button onclick="start()">Enter My Love World 💗</button>
+</header>
+
+<section id="welcome">
+ <h2>Welcome Papa! 🌹</h2>
+ <p>Dear Papa, aaj aapke liye ek special surprise hai.
+ Is website mein kuch questions, games aur ek special promise hai.</p>
+ <button onclick="show('quiz')">Chaliye Shuru Karte Hain ❤️</button>
+</section>
+
+<section id="quiz" class="hidden">
+ <h2>💖 Papa Love Quiz</h2>
+ <p>Question 1: Papa apni beti se kitna pyaar karte hain?</p>
+ <button class="option" onclick="answer('Aapki soch se bhi zyada ❤️')">A. Bahut bahut zyada</button>
+ <button class="option" onclick="answer('Duniya ki har khushi se zyada! 🥰')">B. Unlimited pyaar</button>
+ <button class="option" onclick="answer('Papa ka pyaar kabhi khatam nahi hota ❤️')">C. Hamesha aur hamesha</button>
+ <p id="answer1"></p>
+ <button onclick="show('ammi')">Next Question 🌸</button>
+</section>
+
+<section id="ammi" class="hidden">
+ <h2>🌷 Ammi Quiz</h2>
+ <p>Question 2: Papa, Ammi ko sabse zyada kya pasand hai?</p>
+ <button class="option" onclick="ammi('Ammi ko aapka pyaar aur care bahut pyara hai ❤️')">A. Aapka pyaar</button>
+ <button class="option" onclick="ammi('Ammi ko family ke saath waqt bitana pasand hai 🌸')">B. Family ke saath time</button>
+ <button class="option" onclick="ammi('Ammi ko khush dekhna hi sabse achhi baat hai! 💗')">C. Khush rehna</button>
+ <p id="answer2"></p>
+ <p>Ek aur sawaal: Ammi ki favourite cheez kya hai?</p>
+ <input id="fav" placeholder="Yahan apna jawab likhein...">
+ <button onclick="ammiFav()">Submit ❤️</button>
+ <p id="favResult"></p>
+ <button onclick="show('agreement')">Agreement par chalein 📜</button>
+</section>
+
+<section id="agreement" class="hidden">
+ <h2>📜 Papa-Beti Special Agreement</h2>
+ <div class="heart">💞</div>
+ <h3>THE FOREVER FAVOURITE DAUGHTER AGREEMENT</h3>
+ <p>Main, Papa, apni laadli beti se ye pyare vaade karta hoon:</p>
+ <p>❤️ Main apni beti ko hamesha pyaar aur izzat dunga.</p>
+ <p>❤️ Uski baatein dhyan se sununga.</p>
+ <p>❤️ Uske sapno ko poora karne mein uska saath dunga.</p>
+ <p>❤️ Use kabhi akela mehsoos nahi hone dunga.</p>
+ <p>❤️ Woh meri hamesha laadli beti rahegi.</p>
+ <p>❤️ Hamara rishta hamesha pyaar aur bharose se bhara rahega.</p>
+ <hr>
+ <p><b>Papa ka naam:</b></p>
+ <input id="papaName" placeholder="Papa apna naam likhein">
+ <p><b>Laadli beti ka naam:</b></p>
+ <input id="daughterName" placeholder="Beti ka naam">
+ <p><b>Digital Signature:</b></p>
+ <input id="signature" placeholder="Papa yahan sign karein">
+ <p id="date"></p>
+ <button onclick="sign()">I ACCEPT ❤️</button>
+ <p id="signed"></p>
+ <p><small>Ye ek family love promise hai, legal contract nahi. ❤️</small></p>
+ <button onclick="show('games')">Ab Games Khelein 🎮</button>
+</section>
+
+<section id="games" class="hidden">
+ <h2>🎮 Papa & Beti Game Zone</h2>
+
+ <h3>Game 1: Catch the Hearts ❤️</h3>
+ <p>10 hearts collect karke dekhiye!</p>
+ <div id="gameArea">
+  <div class="heart" id="falling">❤️</div>
+  <p>Score: <span id="score">0</span></p>
+  <button onclick="catchHeart()">Catch Heart 💗</button>
+ </div>
+ <p id="gameMessage"></p>
+
+ <hr>
+
+ <h3>Game 2: Lucky Love Box 🎁</h3>
+ <p>Button dabaiye aur ek surprise message paiye.</p>
+ <div id="lucky">🎁</div>
+ <button onclick="lucky()">Open Surprise</button>
+
+ <hr>
+
+ <h3>Game 3: Papa ki Memory Test 🧠</h3>
+ <p>Ek sawaal ka jawab dijiye:</p>
+ <p>Apni beti ki sabse pyari baat kya hai?</p>
+ <button class="option" onclick="memory('Uski smile 😊')">Uski smile</button>
+ <button class="option" onclick="memory('Uska cute andaaz 💗')">Uska cute andaaz</button>
+ <button class="option" onclick="memory('Uska dil aur uski baatein ❤️')">Uska dil aur baatein</button>
+ <p id="memoryResult"></p>
+</section>
+
+<section id="final" class="hidden">
+ <h2>💌 A Letter For My Papa</h2>
+ <div class="heart">❤️</div>
+ <p>
+ Dear Papa,<br><br>
+ Aap meri life ke sabse special insaan hain.
+ Aapka pyaar mere liye duniya ki sabse badi blessing hai.
+ Main chahti hoon ki aap hamesha khush rahein.
+ Chahe main kitni bhi badi ho jaun,
+ main hamesha aapki chhoti si laadli beti rahungi.
+ <br><br>
+ I LOVE YOU PAPA! ❤️
+ <br><br>
+ Forever Your Laadli Daughter 🌸
+ </p>
+ <button onclick="location.reload()">Play Again 💗</button>
+</section>
+
+<footer>
+ Made with endless love by your daughter ❤️
+ <br> Papa is my forever hero!
+ <br><br>
+ <button onclick="show('final')">Final Surprise 💌</button>
+</footer>
+
+<script>
+function show(id){
+ document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function start(){show('quiz')}
+
+function answer(msg){
+ document.getElementById('answer1').innerText=msg;
+}
+function ammi(msg){
+ document.getElementById('answer2').innerText=msg;
+}
+function ammiFav(){
+ let v=document.getElementById('fav').value;
+ document.getElementById('favResult').innerText=
+ v ? 'Papa ka jawab: '+v+' 🌸' : 'Pehle jawab likhiye!';
+}
+document.getElementById('date').innerText=
+ 'Date: '+new Date().toLocaleDateString('en-IN');
+
+function sign(){
+ let p=document.getElementById('papaName').value;
+ let d=document.getElementById('daughterName').value;
+ let s=document.getElementById('signature').value;
+ if(!p||!d||!s){
+ alert('Papa, saari details bhar dijiye ❤️');
+ return;
+ }
+ document.getElementById('signed').innerHTML=
+ '💖 AGREEMENT ACCEPTED 💖<br> Papa: '+safe(p)+
+ '<br>Laadli: '+safe(d)+
+ '<br>Signature: '+safe(s)+
+ '<br>Forever Favourite Daughter! ❤️';
+}
+function safe(str){
+ return str.replace(/[&<>"']/g,c=>({
+ '&':'&amp;','<':'&lt;','>':'&gt;',
+ '"':'&quot;',"'":'&#39;'
+ }[c]));
+}
+
+let score=0;
+function catchHeart(){
+ if(score>=10)return;
+ score++;
+ document.getElementById('score').innerText=score;
+ document.getElementById('gameMessage').innerText=
+ score===10?'🏆 Papa jeet gaye! Best Papa Award!':
+ 'Yay! Ek aur heart collect hua ❤️';
+ if(score===10){
+ document.getElementById('falling').innerText='🏆';
+ }
+}
+let messages=[
+ 'Papa, aap meri duniya hain ❤️',
+ 'Aap sabse best Papa hain 🥰',
+ 'Aapki laadli aapse bahut pyaar karti hai 💗',
+ 'Papa, aap hamesha mere hero rahenge 🌹',
+ 'Aapke bina meri duniya adhoori hai 💖'
+];
+function lucky(){
+ let m=messages[Math.floor(Math.random()*messages.length)];
+ document.getElementById('lucky').innerText='💌 '+m;
+}
+function memory(msg){
+ document.getElementById('memoryResult').innerText=
+ 'Beautiful answer! ❤️ '+msg;
+}
+</script>
+</body>
+</html>
